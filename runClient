@@ -1,0 +1,3 @@
+#!/bin/bash
+clear
+MESA_GL_VERSION_OVERRIDE=4.3 ./gradlew runClient

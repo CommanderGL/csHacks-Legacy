@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "cshacks",
+  "version": "1.2",
+  "environment": "client",
+  "name": "csHacks",
+  "description": "A simple Minecraft hack client.",
+  "authors": [
+    "CrossScar"
+  ],
+  "contact": {
+    "homepage": "https://commandergl.github.io/cshacks/",
+    "sources": "https://github.com/CommanderGL/cshacks"
+  },
+
+  "license": "Mozilla Public License 2.0",
+  "icon": "assets/cshacks/icon.png",
+  "entrypoints": {
+    "client": [
+      "net.crossscar.cshacks.Main"
+    ]
+  },
+  "mixins": [
+    "cshacks.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.17",
+    "fabric-api": "*",
+    "minecraft": ">=1.19.3",
+    "java": ">=17"
+  }
+}
