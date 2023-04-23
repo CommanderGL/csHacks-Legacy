@@ -1,66 +1,50 @@
 package net.crossscar.cshacks.gui;
 
-import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
-import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
-import io.github.cottonmc.cotton.gui.widget.WButton;
-import io.github.cottonmc.cotton.gui.widget.data.Insets;
-import net.minecraft.client.MinecraftClient;
+import dev.lambdaurora.spruceui.screen.SpruceScreen;
+import dev.lambdaurora.spruceui.widget.SpruceButtonWidget;
+import dev.lambdaurora.spruceui.Position;
+
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
-public class CsScreen extends LightweightGuiDescription {
+public class CsScreen extends SpruceScreen {
     public static boolean fly = false;
     public static boolean reach = false;
-    public static WButton flyButton;
-    public static WButton reachButton;
+
+    private Screen previousScreen;
+
+    private SpruceButtonWidget flyButton;
 
     public CsScreen(Screen previousScreen) {
-        WPlainPanel root = new WPlainPanel();
-        root.setInsets(new Insets(25));
-        setRootPanel(root);
+        super(Text.of("csHacks"));
+        this.previousScreen = previousScreen;
+    }
 
-        WButton backButton = new WButton(Text.of("Back"));
-        backButton.setOnClick(() -> MinecraftClient.getInstance().setScreen(previousScreen));
-        root.add(backButton, 12, 0, 46, 20);
+    @Override
+    protected void init() {
+        super.init();
+        int startx = 10;
 
-        WButton flyButton = new WButton(Text.of("Flying [OFF]"));
-        flyButton.setOnClick(() -> this.toggleFly());
-        root.add(flyButton, 0, 30, 70, 20);
-        this.flyButton = flyButton;
-        
-        WButton reachButton = new WButton(Text.of("Reach [OFF]"));
-        reachButton.setOnClick(() -> this.toggleReach());
-        root.add(reachButton, 0, 60, 70, 20);
-        this.reachButton = reachButton;
-
-        if (fly) {
-            flyButton.setLabel(Text.of("Flying [ON]"));
+        if (this.fly) {
+            this.flyButton = new SpruceButtonWidget(Position.of(startx, 10), 70, 20, Text.of("Fly [ON]"),
+                btn -> this.toggleFly());
+        } else {
+            this.flyButton = new SpruceButtonWidget(Position.of(startx, 10), 70, 20, Text.of("Fly [OFF]"),
+                btn -> this.toggleFly());
         }
-        
-        if (reach) {
-            reachButton.setLabel(Text.of("Reach [ON]"));
-        }
+        this.addDrawableChild(flyButton);
 
-        root.validate(this);
+        this.addDrawableChild(new SpruceButtonWidget(Position.of(this.width - 55, 10), 45, 20, Text.of("Back"),
+                btn -> this.client.setScreen(this.previousScreen)));
     }
 
     public void toggleFly() {
         this.fly = !this.fly;
         if (fly) {
-            this.flyButton.setLabel(Text.of("Flying [ON]"));
+            this.flyButton.setMessage(Text.of("Flying [ON]"));
         }
         if (!fly) {
-            this.flyButton.setLabel(Text.of("Flying [OFF]"));
-        }
-    }
-    
-    public void toggleReach() {
-        this.reach = !this.reach;
-        if (reach) {
-            this.reachButton.setLabel(Text.of("Reach [ON]"));
-        }
-        if (!reach) {
-            this.reachButton.setLabel(Text.of("Reach [OFF]"));
+            this.flyButton.setMessage(Text.of("Flying [OFF]"));
         }
     }
 }

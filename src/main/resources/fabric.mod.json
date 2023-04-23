@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "cshacks",
-  "version": "1.2",
+  "version": "2.0+1.19.4",
   "environment": "client",
   "name": "csHacks",
   "description": "A simple Minecraft hack client.",
@@ -9,8 +9,8 @@
     "CrossScar"
   ],
   "contact": {
-    "homepage": "https://commandergl.github.io/cshacks/",
-    "sources": "https://github.com/CommanderGL/cshacks"
+    "homepage": "https://github.com/CommanderGL/csHacks/releases",
+    "sources": "https://github.com/CommanderGL/csHacks"
   },
 
   "license": "Mozilla Public License 2.0",

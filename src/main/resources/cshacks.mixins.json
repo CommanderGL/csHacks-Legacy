@@ -6,8 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "MainMenuMixin",
-    "PauseMenuMixin"
+    "TitleScreenMixin",
+    "PauseScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

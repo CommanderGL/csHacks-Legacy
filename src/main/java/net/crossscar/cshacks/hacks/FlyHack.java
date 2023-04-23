@@ -14,12 +14,14 @@ public class FlyHack {
 			
 			if (fly) {
 				tick++;
+
+				Vec3d vel = player.getVelocity();
 				player.getAbilities().flying = true;
 				
 				if (tick == 40) {
-					player.refreshPositionAndAngles(player.getX(), player.getY() - 0.04D, player.getZ(), player.getYaw(), player.getPitch());
+					player.refreshPositionAndAngles(player.getX() + vel.x, player.getY() - 0.04D, player.getZ() + vel.z, player.getYaw(), player.getPitch());
 				} else if (tick == 41) {
-					player.refreshPositionAndAngles(player.getX(), player.getY() + 0.04D, player.getZ(), player.getYaw(), player.getPitch());
+					player.refreshPositionAndAngles(player.getX() + vel.x, player.getY() + 0.04D, player.getZ() + vel.z, player.getYaw(), player.getPitch());
 				} else if (tick == 80) {
 					tick = 0;
 				}
