@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "cshacks",
-  "version": "2.0+1.19.4",
+  "version": "2.1+1.19.4",
   "environment": "client",
   "name": "csHacks",
   "description": "A simple Minecraft hack client.",
@@ -10,11 +10,12 @@
   ],
   "contact": {
     "homepage": "https://github.com/CommanderGL/csHacks/releases",
-    "sources": "https://github.com/CommanderGL/csHacks"
+    "sources": "https://github.com/CommanderGL/csHacks",
+    "issues": "https://gitub.com/CommanderGL/csHacks"
   },
 
   "license": "Mozilla Public License 2.0",
-  "icon": "assets/cshacks/icon.png",
+  "icon": "assets/cshacks/logo.png",
   "entrypoints": {
     "client": [
       "net.crossscar.cshacks.Main"

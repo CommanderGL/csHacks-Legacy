@@ -8,6 +8,6 @@ import net.minecraft.text.Text;
 
 public class CsOpenButton extends ButtonWidget {
 	public CsOpenButton(int x, int y, int width, int height, Screen screen) {
-		super(x, y, width, height, Text.of("csHacks"), button -> MinecraftClient.getInstance().setScreen(new CsScreen(screen)), ButtonWidget.DEFAULT_NARRATION_SUPPLIER);
+		super(x, y, width, height, Text.translatable("net.crossscar.cshacks"), button -> MinecraftClient.getInstance().setScreen(new CsScreen(screen)), ButtonWidget.DEFAULT_NARRATION_SUPPLIER);
 	}
 }

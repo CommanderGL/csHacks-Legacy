@@ -16,7 +16,7 @@ public class CsScreen extends SpruceScreen {
     private SpruceButtonWidget flyButton;
 
     public CsScreen(Screen previousScreen) {
-        super(Text.of("csHacks"));
+        super(Text.translatable("net.crossscar.cshacks"));
         this.previousScreen = previousScreen;
     }
 
@@ -26,25 +26,25 @@ public class CsScreen extends SpruceScreen {
         int startx = 10;
 
         if (this.fly) {
-            this.flyButton = new SpruceButtonWidget(Position.of(startx, 10), 70, 20, Text.of("Fly [ON]"),
+            this.flyButton = new SpruceButtonWidget(Position.of(startx, 10), 70, 20, Text.translatable("net.crossscar.cshacks.gui.flybtn.on"),
                 btn -> this.toggleFly());
         } else {
-            this.flyButton = new SpruceButtonWidget(Position.of(startx, 10), 70, 20, Text.of("Fly [OFF]"),
+            this.flyButton = new SpruceButtonWidget(Position.of(startx, 10), 70, 20, Text.translatable("net.crossscar.cshacks.gui.flybtn.off"),
                 btn -> this.toggleFly());
         }
         this.addDrawableChild(flyButton);
 
-        this.addDrawableChild(new SpruceButtonWidget(Position.of(this.width - 55, 10), 45, 20, Text.of("Back"),
+        this.addDrawableChild(new SpruceButtonWidget(Position.of(this.width - 55, 10), 45, 20, Text.translatable("net.crossscar.cshacks.gui.backbtn"),
                 btn -> this.client.setScreen(this.previousScreen)));
     }
 
     public void toggleFly() {
         this.fly = !this.fly;
         if (fly) {
-            this.flyButton.setMessage(Text.of("Flying [ON]"));
+            this.flyButton.setMessage(Text.translatable("net.crossscar.cshacks.gui.flybtn.on"));
         }
         if (!fly) {
-            this.flyButton.setMessage(Text.of("Flying [OFF]"));
+            this.flyButton.setMessage(Text.translatable("net.crossscar.cshacks.gui.flybtn.off"));
         }
     }
 }
