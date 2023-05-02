@@ -17,6 +17,10 @@ repositories {
         name = "Gegy"
         url = "https://maven.gegy.dev"
     }
+    maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
 }
 
 dependencies {
@@ -33,6 +37,10 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 	include modImplementation("dev.lambdaurora:spruceui:${project.spruceui_version}")
+	
+	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}", {
+        exclude module: 'fabric-api'
+    }
 }
 
 base {

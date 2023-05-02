@@ -1,12 +1,12 @@
 package net.crossscar.cshacks.hacks;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.client.network.ClientPlayerEntity;
 
 public class FlyHack {
 	private static int tick = 0;
 	
-	public static void onUpdate(PlayerEntity player, boolean fly) {
+	public static void onUpdate(ClientPlayerEntity player, boolean fly) {
 		if (player != null) {
 			if (player.getAbilities().creativeMode) {
 				return;

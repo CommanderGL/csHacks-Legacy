@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "cshacks",
-  "version": "2.1+1.19.4",
+  "version": "2.2+1.19.4",
   "environment": "client",
   "name": "csHacks",
   "description": "A simple Minecraft hack client.",
@@ -19,6 +19,9 @@
   "entrypoints": {
     "client": [
       "net.crossscar.cshacks.Main"
+    ],
+    "modmenu": [
+      "net.crossscar.cshacks.CsModMenu"
     ]
   },
   "mixins": [
